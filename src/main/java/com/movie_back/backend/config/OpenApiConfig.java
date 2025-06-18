@@ -8,7 +8,7 @@ import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.info.License;
 
 @Configuration // 配置类
-public class OpenApiConfig { // 类名可以改得更符合 springdoc-openapi
+public class OpenApiConfig {
 
 	@Bean
 	public OpenAPI customOpenAPI() {
