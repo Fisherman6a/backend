@@ -10,15 +10,15 @@ import io.swagger.v3.oas.models.info.License;
 @Configuration // 配置类
 public class OpenApiConfig { // 类名可以改得更符合 springdoc-openapi
 
-        @Bean
-        public OpenAPI customOpenAPI() {
-                return new OpenAPI()
-                                .info(new Info()
-                                                .title("影评项目 API") // 对应你之前的 title
-                                                .description("所有 API 接口") // 对应你之前的 description
-                                                .version("v1.0.0") // 建议添加一个版本号
-                                                .license(new License().name("Apache 2.0").url("http://springdoc.org"))
-                                // 如果需要，可以添加更多信息，例如：
-                                );
-        }
+	@Bean
+	public OpenAPI customOpenAPI() {
+		return new OpenAPI()
+				.info(new Info()
+						.title("影评项目 API") // 对应你之前的 title
+						.description("所有 API 接口") // 对应你之前的 description
+						.version("v1.0.0") // 建议添加一个版本号
+						.license(new License().name("Apache 2.0").url("http://springdoc.org"))
+				// 如果需要，可以添加更多信息，例如：
+				);
+	}
 }
