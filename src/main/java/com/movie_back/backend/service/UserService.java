@@ -6,7 +6,8 @@ import com.movie_back.backend.entity.Role;
 import com.movie_back.backend.entity.User;
 import com.movie_back.backend.exception.ResourceNotFoundException;
 import com.movie_back.backend.repository.UserRepository;
-import lombok.RequiredArgsConstructor;
+// import lombok.RequiredArgsConstructor; // 移除这行
+import org.springframework.context.annotation.Lazy; // 导入 @Lazy
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -14,11 +15,17 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-@RequiredArgsConstructor
+// @RequiredArgsConstructor // 移除此注解，因为我们将手动创建构造函数
 public class UserService implements UserDetailsService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+
+    // 手动创建构造函数，并对PasswordEncoder使用@Lazy注解
+    public UserService(UserRepository userRepository, @Lazy PasswordEncoder passwordEncoder) {
+        this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
+    }
 
     // Spring Security 会调用此方法来加载用户信息
     @Override

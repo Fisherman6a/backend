@@ -34,7 +34,7 @@ public class Movie {
     @Lob
     private String synopsis; // 简介
 
-    @Column(precision = 3, scale = 2) // 例如 8.75
+    @Column
     private Double averageRating = 0.0; // 评分 (由UserRating计算得出)
 
     private String posterUrl; // 海报图片URL (用于图形化显示)
